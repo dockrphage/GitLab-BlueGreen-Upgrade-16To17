@@ -493,27 +493,6 @@ curl -I http://192.168.56.101:30080 | grep "200\|302"
 kubectl exec -n gitlab-v16 gitlab-xxx -- gitlab-rails runner "User.where(id: 1).first.valid_password?('password')"
 ```
 
-### Performance Benchmarks
-| Metric | Expected | Alert Threshold |
-|--------|----------|-----------------|
-| Initial startup | 12 minutes | > 20 minutes |
-| PVC provisioning | 30 seconds | > 2 minutes |
-| Database migration | 3 minutes | > 10 minutes |
-| Cutover time | 5 seconds | > 30 seconds |
-| Rollback time | 10 seconds | > 1 minute |
-
----
-
-## 📚 Documentation Deliverables for Team
-
-1. **Runbook**: `gitlab-upgrade-runbook.md` with step-by-step cutover plan
-2. **Architecture Diagram** (draw.io): Node isolation + Blue-Green flow
-3. **Rollback Script**: `rollback-gitlab.sh` with automated verification
-4. **Monitoring Dashboard**: Grafana with 8 key SLO metrics
-5. **Incident Response Plan**: 3-tier escalation + post-mortem template
-
----
-
 ## 🎓 Key Takeaways for Interview
 
 **The "So What?" Factor**:
